@@ -106,11 +106,6 @@ Trading is about timing some time due to network problem request take too much t
 	  }
 	  ...
 	]
-**Parameters:**
-
-|Name|Type|Mandatory|Description
-| ------------- | ------------- | ------------- |-------------|
-|Limit|INTEGER|NO|Default 30, Max 100.
 
 ### Get-OrderBook
 
@@ -118,6 +113,12 @@ Trading is about timing some time due to network problem request take too much t
 
 **PairName:** like BTC-ETH
       
+**Parameters:**
+  
+|Name|Type|Mandatory|Description  
+| ------------- | ------------- | ------------- |-------------|
+| Limit | INTEGER | NO | Default 30, Max 100
+
   **Response:**
   
     {
@@ -137,17 +138,18 @@ Trading is about timing some time due to network problem request take too much t
        ]
     }
 
-**Parameters:**
-  
-|Name|Type|Mandatory|Description  
-| ------------- | ------------- | ------------- |-------------|
-| Limit | INTEGER | NO | Default 30, Max 100
-
 ### Get-Market History
 
      GET /market/get-market-history/{PairName}
 
    **PairName:** like BTC-ETH.
+
+   **Parameters:**
+  
+| Name  | Type   | Mandatory | Description  
+| ------------- | ------------- | ------------- |-------------|
+| Limit | INTEGER | NO | Default 30, Max 100.
+| LastDate | DOUBLE | NO | Default UtcNow Unix time stamp in milliseconds
    
   **Response:**
 
@@ -164,15 +166,6 @@ Trading is about timing some time due to network problem request take too much t
 	    }
       ...
     ]
-  
-
-  **Parameters:**
-  
-| Name  | Type   | Mandatory | Description  
-| ------------- | ------------- | ------------- |-------------|
-| Limit | INTEGER | NO | Default 30, Max 100.
-| LastDate | DOUBLE | NO | Default UtcNow Unix time stamp in milliseconds
-
 
 ### Get-Ticker
 
@@ -210,27 +203,26 @@ Trading is about timing some time due to network problem request take too much t
      GET /market/get-chart-data/{PairName}
 
   **PairName:** like BTC-ETH
-  
-  **Response:**
 
-    [
-      {
-       "H": 0,
-       "L": 0,
-       "O": 0,
-       "C": 0,
-       "V": 0,       
-       "D": "2018-10-19T17:35:42"
-      }
-      ...
-    ]
-
-**Parameters:**
+  **Parameters:**
   
 | Name  | Type   | Mandatory | Description  
 | ------------- | ------------- | ------------- |-------------|
-| Limit | INTEGER | NO | Default 30, Max 1000.
+| PairName | String | YES | `BTC-USDT` or `LTC-BTC`
+| From | DOUBLE | YES | UNIX Timestamp like `1556188959`
+| To | DOUBLE | YES | UNIX Timestamp like `1561457480`
+| Tick | STRING | YES | Can be 1, 2, 3... for days, 1min, 2min, 3min... for specifying mins and 1h, 2h, 3h... for specifying hours
+  
+  **Response:**
 
+    {
+      "t":[1559214171,1559215482],
+      "h":[0.00000000,0.00000000,0.00000000],
+      "l":[0.00000000,0.00000000,0.00000000],
+      "o":[0.00000000,0.00000000,0.00000000],
+      "c":[0.00000000,0.00000000,0.00000000],
+      "v":[0.00000000,0.00000000,0.00000000]
+    } 
 
 ### How to limit on no of records fetched
 
@@ -253,13 +245,7 @@ Trading is about timing some time due to network problem request take too much t
        }
        ...
      ]
-
-  **Parameters:**
   
-|Name|Type|Mandatory|Description  
-| ------------- | ------------- | ------------- |-------------|
-| Limit |INTEGER| NO | Default 30, Max 100.
-
 ### Get Wallets
 
      GET /wallet/get-wallets
@@ -294,6 +280,12 @@ Trading is about timing some time due to network problem request take too much t
 
    GET api/ticker/24hr
 
+   **Parameters:**
+  
+|Name|Type|Mandatory|Description  
+| ------------- | ------------- | ------------- |-------------|
+| Symbol |STRING| YES | Symbol like `BTC-USDT`
+
   **Response:**
 
     {
@@ -308,12 +300,6 @@ Trading is about timing some time due to network problem request take too much t
       }
       ...
     }
-
-**Parameters:**
-  
-|Name|Type|Mandatory|Description  
-| ------------- | ------------- | ------------- |-------------|
-| Symbol |STRING| YES | Symbol like `BTC-USDT`
 
 ### Get Exchange Info
 
@@ -348,6 +334,13 @@ Trading is about timing some time due to network problem request take too much t
 
      GET /market/ticker/price
 
+     **Parameters:**
+  
+|Name|Type|Mandatory|Description  
+| ------------- | ------------- | ------------- |-------------|
+| Symbol |STRING| NO | Like `BTC-USDT`
+
+
 **Response:**        
 
     [
@@ -366,11 +359,6 @@ Trading is about timing some time due to network problem request take too much t
       ...
     ]
 
-**Parameters:**
-  
-|Name|Type|Mandatory|Description  
-| ------------- | ------------- | ------------- |-------------|
-| Symbol |STRING| NO | Like `BTC-USDT`
 
 ## Authenticated EndPoints
 
