@@ -358,7 +358,10 @@ Trading is about timing some time due to network problem request take too much t
     {
       "Status": true,
       "Message": "Order is successfully created",
-      "Result": null
+      "Result": 
+      {
+        OrderId: 123456
+      }
     }
 
  - **Status:** Status can be `True` or `False`.
