@@ -171,7 +171,13 @@ Trading is about timing some time due to network problem request take too much t
 
      GET /market/get-ticker/{PairName}
   
-  **PairName:** like BTC-ETH
+  **PairName:** like BTC-USDT
+
+  **Parameters:**
+  
+| Name  | Type   | Mandatory | Description  
+| ------------- | ------------- | ------------- |-------------|
+| PairName | STRING | NO | Return ticker of given pair if provided. If not, returns all pairs data
   
   **Response:**
   
@@ -209,8 +215,8 @@ Trading is about timing some time due to network problem request take too much t
 | Name  | Type   | Mandatory | Description  
 | ------------- | ------------- | ------------- |-------------|
 | PairName | String | YES | `BTC-USDT` or `LTC-BTC`
-| From | DOUBLE | YES | UNIX Timestamp like `1556188959`
-| To | DOUBLE | YES | UNIX Timestamp like `1561457480`
+| From | DOUBLE | YES | UNIX Timestamp in miliseconds like `1556188959`
+| To | DOUBLE | YES | UNIX Timestamp in miliseconds like `1561457480`
 | Tick | STRING | YES | Can be 1, 2, 3... for days, 1min, 2min, 3min... for specifying mins and 1h, 2h, 3h... for specifying hours
   
   **Response:**
@@ -245,37 +251,7 @@ Trading is about timing some time due to network problem request take too much t
        }
        ...
      ]
-  
-### Get Wallets
-
-     GET /wallet/get-wallets
-
-**Parameters:**
-
-
-| Name  | Type   | Mandatory | Description  
-| ------------- | ------------- | ------------- |-------------|
-| Currency| STRING | YES | Currency has two condition either it is `All` for getting all Wallets or specific currency Name like `Bitcoin`, `Litecoin` etc
-
-**Response:**
-
-    [
-      {
-        "Available": 1000.0047838,
-        "Balance": 1000.0047838,
-        "Name": "Bitcoin",
-        "Address": "1Hz96kJKF2HLPGY15JWLB5m9qGNxvt8tHJ"
-      },
-      {
-        "Available": 999.94,
-        "Balance": 999.94,
-        "Name": "Ethereum",
-        "Address": "0x62B2Fd68800820a9fE3eCa3548e59721ce6E3022"
-      }
-      ...
-    ]
-
-
+ 
 ### Get 24hr Ticker
 
    GET api/ticker/24hr
@@ -334,7 +310,7 @@ Trading is about timing some time due to network problem request take too much t
 
      GET /market/ticker/price
 
-     **Parameters:**
+**Parameters:**
   
 |Name|Type|Mandatory|Description  
 | ------------- | ------------- | ------------- |-------------|
@@ -472,6 +448,36 @@ Trading is about timing some time due to network problem request take too much t
 	   "Result": null
 	 }
 	 
+ 
+### Get Wallets
+
+     GET /wallet/get-wallets
+
+**Parameters:**
+
+
+| Name  | Type   | Mandatory | Description  
+| ------------- | ------------- | ------------- |-------------|
+| Currency| STRING | YES | Currency has two condition either it is `All` for getting all Wallets or specific currency Name like `Bitcoin`, `Litecoin` etc
+
+**Response:**
+
+    [
+      {
+        "Available": 1000.0047838,
+        "Balance": 1000.0047838,
+        "Name": "Bitcoin",
+        "Address": "1Hz96kJKF2HLPGY15JWLB5m9qGNxvt8tHJ"
+      },
+      {
+        "Available": 999.94,
+        "Balance": 999.94,
+        "Name": "Ethereum",
+        "Address": "0x62B2Fd68800820a9fE3eCa3548e59721ce6E3022"
+      }
+      ...
+    ]
+
 ### Start user data stream
 
      POST /api/v1/userdatastream
@@ -495,7 +501,7 @@ It's recommended to send a ping about every 30 minutes.
 
 |Name|Type|Mandatory|Description|
 | ------------- | ------------- | ------------- |-------------|
-|ListenKey|STRING|YES|
+|PrivateKey|STRING|YES|
 
 **Response**
 
