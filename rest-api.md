@@ -530,6 +530,115 @@ Close out a user data stream.
 	   "Status": true
 	 }
 
+### Get Wallet History
 
-   
-	
+     GET  /trade/get-wallet-history
+
+**Response**
+
+	 { Status: true,
+       Message: null,
+       Result:
+         [ 
+          { 
+            ToAddress: '1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC',
+            Status: 0,
+            Amount: 0.002,
+            Date: '2019-07-29T08:17:18',
+            Txid: 'N/A',
+            Currency: 'Bitcoin' 
+          },
+          { 
+            ToAddress: '1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC',
+            Status: 0,
+            Amount: 0.002,
+            Date: '2019-07-29T08:15:26',
+            Txid: 'N/A',
+            Currency: 'Bitcoin' 
+          }
+         ]
+      }
+
+### Get Deposit History
+
+     GET  /trade/get-deposit-history
+
+**Response**
+
+	 { Status: true,
+       Message: null,
+       Result:
+         [ 
+          { 
+            ToAddress: 'LPzKbmNhG9vD4U89PyAg6XkmLS2CNfVSju',
+            Status: 'Confirmed',
+            Amount: 0.01,
+            Date: '2019-05-30T19:38:39',
+            Txid:
+            '439e9f1df47d7ff132441e919fe1054a7f8484221d43666de20d659a8f891197',
+            Currency: 'Litecoin'
+          }
+         ]
+      }
+
+### Get Order Fills Fee
+
+     GET  /trade/get-order-fills-fees
+     
+ **PairName:** like BTC-USDT
+     
+**Parameters:**
+
+|Name|Type|Mandatory|Description|
+| ------------- | ------------- | ------------- |-------------|
+|PairName |STRING|NO|    
+
+**Response**
+
+	 { Status: true,
+       Message: null,
+       Result:
+         [ 
+           {
+             Date: '2019-08-29T10:28:35',
+            TradingPrice: 0.009487,
+            Amount: 0.394526,
+            Fee: '0.00003341 BTC'
+          },
+         {
+           Date: '2019-08-29T10:28:35',
+           TradingPrice: 0.008823,
+           Amount: 0.081363,
+           Fee: '0.00008411 BTC'
+         }
+       ]
+     }
+
+### Actual Fee Rates
+
+     GET  /trade/actual-fee-rates    
+
+**Response**
+
+	 { Status: true,
+       Message: null,
+       Result:
+         [ 
+           { 
+              Name: '1', Level: 1, MakerFee: '0.15%', TakerFee: '0.15%'
+           },
+           { 
+             Name: '2', Level: 2, MakerFee: '0.1%', TakerFee: '0.11%' 
+           },
+           { 
+             Name: '3', Level: 3, MakerFee: '0.09%', TakerFee: '0.1%' 
+           },
+           {
+             Name: '4', Level: 4, MakerFee: '0.08%', TakerFee: '0.09%'
+           },
+           { 
+             Name: '5', Level: 5, MakerFee: '0.07%', TakerFee: '0.08%' 
+          }
+       ]
+     }
+
