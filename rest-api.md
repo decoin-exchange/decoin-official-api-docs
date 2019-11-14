@@ -561,17 +561,13 @@ Close out a user data stream.
 
 **Response**
 
-	 { Status: true,
-       Message: null,
-       Result:
          [ 
           { 
             ToAddress: 'LPzKbmNhG9vD4U89PyAg6XkmLS2CNfVSju',
             Status: 'Confirmed',
             Amount: 0.01,
             Date: '2019-05-30T19:38:39',
-            Txid:
-            '439e9f1df47d7ff132441e919fe1054a7f8484221d43666de20d659a8f891197',
+            Txid: '439e9f1df47d7ff132441e919fe1054a7f8484221d43666de20d659a8f891197',
             Currency: 'Litecoin'
           }
          ]
