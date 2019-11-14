@@ -20,15 +20,13 @@
   
     {
       "Message": String,
-      "Status": Boolean,
-      "Result": ObjectArray | JsonArray
+      "Status": Boolean
     }
 
  - **Message:** Message is about the `API` reponse.
   
  - **Status:** It show status of the response either it is `True` or `False`. `True` shows the request is successfully processed and `False` shows request could not be processed by the server.
  
- - **Result:** Result has the response data against the `API` request.
  
 ### 2. Authenticated EndPoints
  - All authenticated endpoints can be accessed through only `POST` request.
@@ -44,6 +42,8 @@
  - **Message:** Message is about the `API` reponse.
 
  - **Status:** it show status of the response either it is `True` or `False`. `True` shows the request is successfully processed and `False` shows request could not be processed by the server.
+
+- **Result:** Result has the response data against the API request.
 
 ###  Endpoint Security
  - How you interact with each EndPoint depends on the security type.
@@ -111,7 +111,7 @@ Trading is about timing some time due to network problem request take too much t
 
      GET /market/get-orderbook/{PairName}
 
-**PairName:** like BTC-ETH
+**PairName:** like ETH-BTC
       
 **Parameters:**
   
@@ -142,7 +142,7 @@ Trading is about timing some time due to network problem request take too much t
 
      GET /market/get-market-history/{PairName}
 
-   **PairName:** like BTC-ETH.
+   **PairName:** like ETH-BTC
 
    **Parameters:**
   
@@ -208,7 +208,7 @@ Trading is about timing some time due to network problem request take too much t
   
      GET /market/get-chart-data/{PairName}
 
-  **PairName:** like BTC-ETH
+  **PairName:** like ETH-BTC
 
   **Parameters:**
   
@@ -240,7 +240,7 @@ Trading is about timing some time due to network problem request take too much t
 
      [
        {
-        "Name": "BTC-ETH",
+        "Name": "ETH-BTC",
         "Base": "Tether",
         "Market": "Bitcoin"
        },
@@ -294,7 +294,7 @@ Trading is about timing some time due to network problem request take too much t
     		"QuoteAsset": "Bitcoin",
     		"QuotePrecision": 6
     	}, {
-    		"Symbol": "ETH/BTC",
+    		"Symbol": "ETH-BTC",
     		"Status": 1,
     		"BaseAsset": "Bitcoin",
     		"BaseAssetPrecision": 6,
@@ -346,7 +346,7 @@ Trading is about timing some time due to network problem request take too much t
 
 |Name|Type|Mandatory|Description|
 | ------------- | ------------- | ------------- |-------------|
-|PairName|STRING|YES|PairName is like `BTC-ETH`, `BTC-LTC`, `USDT-LTC` etc
+|PairName|STRING|YES|PairName is like `ETH-BTC`, `BTC-LTC`, `USDT-LTC` etc
 |Quantity|DECIMAL|YES|Quantity of order to be created
 |Rate|STRING|NO|Required only if `Type` is `LimitOrder`, `StopOrder`
 |Type|STRING|YES|`MarketOrder`, `LimitOrder`, `StopOrder`
@@ -535,10 +535,7 @@ Close out a user data stream.
      GET  /trade/get-wallet-history
 
 **Response**
-
-	 { Status: true,
-       Message: null,
-       Result:
+	
          [ 
           { 
             ToAddress: '1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC',
@@ -557,7 +554,6 @@ Close out a user data stream.
             Currency: 'Bitcoin' 
           }
          ]
-      }
 
 ### Get Deposit History
 
@@ -579,7 +575,6 @@ Close out a user data stream.
             Currency: 'Litecoin'
           }
          ]
-      }
 
 ### Get Order Fills Fee
 
@@ -595,9 +590,6 @@ Close out a user data stream.
 
 **Response**
 
-	 { Status: true,
-       Message: null,
-       Result:
          [ 
            {
              Date: '2019-08-29T10:28:35',
@@ -612,7 +604,6 @@ Close out a user data stream.
            Fee: '0.00008411 BTC'
          }
        ]
-     }
 
 ### Actual Fee Rates
 
@@ -620,9 +611,6 @@ Close out a user data stream.
 
 **Response**
 
-	 { Status: true,
-       Message: null,
-       Result:
          [ 
            { 
               Name: '1', Level: 1, MakerFee: '0.15%', TakerFee: '0.15%'
@@ -640,5 +628,5 @@ Close out a user data stream.
              Name: '5', Level: 5, MakerFee: '0.07%', TakerFee: '0.08%' 
           }
        ]
-     }
+     
 
