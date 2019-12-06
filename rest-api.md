@@ -124,15 +124,15 @@ Trading is about timing some time due to network problem request take too much t
     {
       "SellOrders": [
          {
-          "Quantity": 0.001,
-          "Rate": 6649.3
+          "Quantity": "0.001",
+          "Rate": "6649.3"
          }
          ...
        ],
        "BuyOrders": [
          {
-          "Quantity": 0.001,
-          "Rate": 6549.2
+          "Quantity": "0.001",
+          "Rate": "6549.2"
          }
          ...
        ]
@@ -155,13 +155,13 @@ Trading is about timing some time due to network problem request take too much t
 
     [
 	    {
-	     "Rate": 11449.00000000,
-	     "Amount": 0.33711800,
+	     "Rate": "11449.00000000",
+	     "Amount": "0.33711800",
 	     "Date": "2019-07-08T12:55:32"
 	    }, 
         { 
-	     "Rate": 11447.00000000,
-	     "Amount": 0.29374200,
+	     "Rate": "11447.00000000",
+	     "Amount": "0.29374200",
 	     "Date": "2019-07-08T12:55:32"
 	    }
       ...
@@ -184,23 +184,23 @@ Trading is about timing some time due to network problem request take too much t
     [
 	    {
 	     "Name": "BTC/USDT",
-	     "AskPrice": 11865.00000000,
-	     "BidPrice": 11606.00000000,
-	     "HighPrice": 11846.00000000,
-	     "LowPrice": 11164.00000000,
-	     "LastPrice": 11828.00000000,
-	     "PrevDayPrice": 11304.00000000,
-	     "Volume": 43724.23740900
+	     "AskPrice": "11865.00000000",
+	     "BidPrice": "11606.00000000",
+	     "HighPrice": "11846.00000000",
+	     "LowPrice": "11164.00000000",
+	     "LastPrice": "11828.00000000",
+	     "PrevDayPrice": "11304.00000000",
+	     "Volume": "43724.23740900"
 	    }, 
         {
 	     "Name": "ETH/BTC",
-	     "AskPrice": 0.02954900,
-	     "BidPrice": 0.02801894,
-	     "HighPrice": 0.02939100,
-	     "LowPrice": 0.02839100,
-	     "LastPrice": 0.02939100,
-	     "PrevDayPrice": 0.02922500,
-	     "Volume": 5.26630040
+	     "AskPrice": "0.02954900",
+	     "BidPrice": "0.02801894",
+	     "HighPrice": "0.02939100",
+	     "LowPrice": "0.02839100",
+	     "LastPrice": "0.02939100",
+	     "PrevDayPrice": "0.02922500",
+	     "Volume": "5.26630040"
 	    }
       ...
 	]
@@ -267,12 +267,12 @@ Trading is about timing some time due to network problem request take too much t
     {
       "BTC-USDT": 
       {
-        "Ask": 10075.00000000,
-        "Bid": 10061.00000000,
-        "High": 10159.00000000,
-        "Low": 9572.00000000,
-        "Last": 10067.00000000,
-        "Volume": 36454.40181200
+        "Ask": "10075.00000000",
+        "Bid": "10061.00000000",
+        "High": "10159.00000000",
+        "Low": "9572.00000000",
+        "Last": "10067.00000000",
+        "Volume": "36454.40181200"
       }
       ...
     }
@@ -322,15 +322,15 @@ Trading is about timing some time due to network problem request take too much t
     [
       {
         "Symbol": "BTC/USDT",
-        "Price": 10067.00000000
+        "Price": "10067.00000000"
       }, 
       {
         "Symbol": "ETH/BTC",
-        "Price": 0.02200200
+        "Price": "0.02200200"
       }, 
       {
         "Symbol": "DTEP/BTC",
-        "Price": 0.05000000
+        "Price": "0.05000000"
       }
       ...
     ]
@@ -409,23 +409,23 @@ Trading is about timing some time due to network problem request take too much t
     [
       {
         "DateAdded": "10/19/2018 12:35",
-        "Rate": 6549.2,
-        "Quantity": 0.001,
+        "Rate": "6549.2",
+        "Quantity": "0.001",
         "Id": 31,
-        "QuantityRemaining": 0.001,
+        "QuantityRemaining": "0.001",
         "Status": 0,
         "OrderType": 0,
-        "TotalFill": 0
+        "TotalFill": "0.001"
       },
       {
         "DateAdded": "10/11/2018 0:31",
-        "Rate": 6549,
-        "Quantity": 0.001,
+        "Rate": "6549",
+        "Quantity": "0.001",
         "Id": 9,
-        "QuantityRemaining": 0.001,
+        "QuantityRemaining": "0.001",
         "Status": 0,
         "OrderType": 0,
-        "TotalFill": 0
+        "TotalFill": "0.001"
        }
        ...
     ]
@@ -467,14 +467,14 @@ Trading is about timing some time due to network problem request take too much t
 
     [
       {
-        "Available": 1000.0047838,
-        "Balance": 1000.0047838,
+        "Available": "1000.0047838",
+        "Balance": "1000.0047838",
         "Name": "Bitcoin",
         "Address": "1Hz96kJKF2HLPGY15JWLB5m9qGNxvt8tHJ"
       },
       {
-        "Available": 999.94,
-        "Balance": 999.94,
+        "Available": "999.94",
+        "Balance": "999.94",
         "Name": "Ethereum",
         "Address": "0x62B2Fd68800820a9fE3eCa3548e59721ce6E3022"
       }
@@ -538,20 +538,20 @@ Close out a user data stream.
 	
          [ 
           { 
-            ToAddress: '1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC',
+            ToAddress: "1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC",
             Status: 0,
-            Amount: 0.002,
-            Date: '2019-07-29T08:17:18',
-            Txid: 'N/A',
-            Currency: 'Bitcoin' 
+            Amount: "0.002",
+            Date: "2019-07-29T08:17:18",
+            Txid: "N/A",
+            Currency: "Bitcoin" 
           },
           { 
-            ToAddress: '1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC',
+            ToAddress: "1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC",
             Status: 0,
-            Amount: 0.002,
-            Date: '2019-07-29T08:15:26',
-            Txid: 'N/A',
-            Currency: 'Bitcoin' 
+            Amount: "0.002",
+            Date: "2019-07-29T08:15:26",
+            Txid: "N/A",
+            Currency: "Bitcoin"
           }
          ]
 
@@ -563,12 +563,12 @@ Close out a user data stream.
 
          [ 
           { 
-            ToAddress: 'LPzKbmNhG9vD4U89PyAg6XkmLS2CNfVSju',
-            Status: 'Confirmed',
-            Amount: 0.01,
-            Date: '2019-05-30T19:38:39',
-            Txid: '439e9f1df47d7ff132441e919fe1054a7f8484221d43666de20d659a8f891197',
-            Currency: 'Litecoin'
+            ToAddress: "LPzKbmNhG9vD4U89PyAg6XkmLS2CNfVSju",
+            Status: "Confirmed",
+            Amount: "0.01",
+            Date: "2019-05-30T19:38:39",
+            Txid: "439e9f1df47d7ff132441e919fe1054a7f8484221d43666de20d659a8f891197",
+            Currency: "Litecoin"
           }
          ]
 
@@ -588,16 +588,16 @@ Close out a user data stream.
 
          [ 
            {
-             Date: '2019-08-29T10:28:35',
-            TradingPrice: 0.009487,
-            Amount: 0.394526,
-            Fee: '0.00003341 BTC'
+            Date: "2019-08-29T10:28:35",
+            TradingPrice: "0.009487",
+            Amount: "0.394526",
+            Fee: "0.00003341 BTC"
           },
          {
-           Date: '2019-08-29T10:28:35',
-           TradingPrice: 0.008823,
-           Amount: 0.081363,
-           Fee: '0.00008411 BTC'
+           Date: "2019-08-29T10:28:35",
+           TradingPrice: "0.008823",
+           Amount: "0.081363",
+           Fee: "0.00008411 BTC"
          }
        ]
 
@@ -609,19 +609,19 @@ Close out a user data stream.
 
          [ 
            { 
-              Name: '1', Level: 1, MakerFee: '0.15%', TakerFee: '0.15%'
+              Name: "1", Level: 1, MakerFee: "0.15%", TakerFee: "0.15%"
            },
            { 
-             Name: '2', Level: 2, MakerFee: '0.1%', TakerFee: '0.11%' 
+             Name: "2", Level: 2, MakerFee: "0.01%", TakerFee: "0.11%"
            },
            { 
-             Name: '3', Level: 3, MakerFee: '0.09%', TakerFee: '0.1%' 
+             Name: "3", Level: 3, MakerFee: "0.09%", TakerFee: "0.15%" 
            },
            {
-             Name: '4', Level: 4, MakerFee: '0.08%', TakerFee: '0.09%'
+             Name: "4", Level: 4, MakerFee: "0.08%", TakerFee: "0.09%"
            },
            { 
-             Name: '5', Level: 5, MakerFee: '0.07%', TakerFee: '0.08%' 
+             Name: "5", Level: 5, MakerFee: "0.07%", TakerFee: "0.08%"
           }
        ]
      
