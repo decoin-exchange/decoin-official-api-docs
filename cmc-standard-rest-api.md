@@ -32,17 +32,17 @@
 **Response:**
 
 	{ 
-        "BTC_USDT":{ 
-            "last_price":"7093.21000000",
-            "base_volume":"600.56790428",
-            "quote_volume":"4259954.2643179388000000",
-            "isFrozen":"1"
+        "BTC_USDT": {
+            "last_price": "7136.0",
+            "base_volume": "1154058.95060033",
+            "quote_volume": "8235364671.483954880",
+            "isFrozen": "1"
         },
-        "ETH_BTC":{ 
-            "last_price":"0.02039900",
-            "base_volume":"1.00000000",
-            "quote_volume":"0.0203990000000000",
-            "isFrozen":"1"
+        "ETH_BTC": {
+            "last_price": "0.020003",
+            "base_volume": "0.352754536147",
+            "quote_volume": "0.007056148986548441",
+            "isFrozen": "1"
         } ...
     }
 
@@ -54,31 +54,31 @@
   **Response:**
   
     { 
-        "BTC-USDT":{ 
-            "ask_price":"7093.21000000",
-            "bid_price":"0.00000000",
-            "high_price":"7093.21000000",
-            "low_price":"7093.21000000",
-            "last_price":"7093.21000000",
-            "base_volume":"600.56790428",
-            "quot_volume":"4259954.2643179388000000"
+        "BTC_USDT": {
+            "ask_price": "7507",
+            "bid_price": "7504.99",
+            "high_price": "7549.73",
+            "low_price": "7445.61",
+            "last_price": "7504.99",
+            "base_volume": "398925.16918557",
+            "quote_volume": "2993929405.4860109943"
         },
-        "ETH-BTC":{ 
-            "ask_price":"0.00000000",
-            "bid_price":"0.00000000",
-            "high_price":"0.02039900",
-            "low_price":"0.02039900",
-            "last_price":"0.02039900",
-            "base_volume":"1.00000000",
-            "quot_volume":"0.0203990000000000"
-        }
+        "ETH_BTC": {
+            "ask_price": "0.019964",
+            "bid_price": "0.019960",
+            "high_price": "0.020105",
+            "low_price": "0.019735",
+            "last_price": "0.019962",
+            "base_volume": "27.562146380841",
+            "quote_volume": "0.550195566054348042"
+        },...
     }    
 
 ### Get OrderBook
 
      GET /cmc/orderbook
 
-**market_pair:** like ETH-BTC
+**market_pair:** like ETH_BTC
 
 **Example:** https://apiv1.decoin.io/cmc/orderbook/?market_pair=XRP_USDT
       
@@ -136,21 +136,21 @@
 
     [
         {
-            "price":"0.22924000",
-            "trade_timestamp":"1575016943",
-            "type":"sell",
-            "base_volume":"879886.107767",
-            "quote_volume":"201705.09134450708",
-            "tradeID":"3345483"
+            "price": "0.22907000",
+            "trade_timestamp": "1575898378",
+            "type": "buy",
+            "base_volume": "32247.342033",
+            "quote_volume": "7370.13002164215",
+            "tradeID": 2783886
         },
         {
-            "price":"0.22998000",
-            "trade_timestamp":"1575016642",
-            "type":"buy",
-            "base_volume":"879886.107767",
-            "quote_volume":"201705.09134450708",
-            "tradeID":"3345481"
-        } ...
+            "price": "0.22816000",
+            "trade_timestamp": "1575896610",
+            "type": "buy",
+            "base_volume": "32247.342033",
+            "quote_volume": "7370.13002164215",
+            "tradeID": 2783576
+        },...
     ]
 
 
