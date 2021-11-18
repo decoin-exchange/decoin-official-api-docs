@@ -1,20 +1,21 @@
+# Socket API for [Decoin.io](https://www.decoin.io/) Exchange
 
-# SignalR
+## SignalR
 
 
- 1. Please use SignalR clients to connect with socket https://socketv1.decoin.io.
- 2. For SingnalR install the package `@aspnet/signalr`.
+ 1. Use [`SignalR`](https://dotnet.microsoft.com/apps/aspnet/signalr) client to connect with socket https://socketv1.decoin.io.
+ 2. For SignalR install the package `@microsoft/signalr`.
 
 ### How to connect with Socket
-- You can connect with Socket and Subcribe to channel after installing SIgnalR. 
-- Here it is the JavaScript example for demonstrating the connectin to Socket and subcribing to channel.
+- You can connect with Socket and Subscribe to channel after installing SignalR. 
+- JavaScript example for demonstrating the connection to Socket and subscribing to channel is given below.
 
 
 **JavaScript Example**
    
-   Install the SignnalR package by npm
+   Install the SignalR package by npm
           
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
 
 For Connection to Socket.  
    
@@ -31,15 +32,15 @@ For Connection to Socket.
 
 **JoinPairChannel:** It is the name of the method for joining pairChannel.
 
-**pairName:** It is the Name of the pair to which you want to subcscribe like `BTC-ETH` .  
+**pairName:** It is the Name of the pair to which you want to subscribe like `BTC-ETH` .  
  
 ## Socket Channels
 
 ### **Order Updates Channel**
 
-It is used to get the order book updates.
+To get the order book updates.
 
-**Channel Name:** OrderUpdates/{PairName}
+**Channel Name:** `OrderUpdates/{PairName}`
 
 **PairName:** like BTC-ETH
 
@@ -62,9 +63,9 @@ It is used to get the order book updates.
 
 ### **Order History Channel**
 
-It is used to check the history of the orders.
+To check the history of the orders.
 
-**Channel Name:** TradeHistoryUpdates/{PairName}
+**Channel Name:** `TradeHistoryUpdates/{PairName}`
 
 **PairName:** like BTC-ETH
 
@@ -79,9 +80,9 @@ It is used to check the history of the orders.
 
 ### **Ticket Updates Channel**
 
-It is used to get Ticket Updates.
+To get Ticket Updates.
 
-**Channel Name:** TickerUpdates
+**Channel Name:** `TickerUpdates`
 
     [
 	  [
@@ -100,9 +101,9 @@ It is used to get Ticket Updates.
   
 ### **User Order Updates**
 
-It is used to get order update after order is placed.
+To get order update after order is placed.
 
-**Channel Name:** UserOrderUpdates
+**Channel Name:** `UserOrderUpdates`
 
     [ 
 	  [ 
@@ -120,9 +121,9 @@ It is used to get order update after order is placed.
 
 ### ** Wallet Update ** 
 
-It is used to update the wallet.
+To get the wallet update.
 
-**Channel Name:** WalletUpdate
+**Channel Name:** `WalletUpdate`
 
 	[
 	  [ 
@@ -135,9 +136,9 @@ It is used to update the wallet.
 	
 ### ** New Price Bar **
 
-It is used to get price history of pair.
+To get price history of pair.
 
-**Channel Name: ** NewPriceBar
+**Channel Name: ** `NewPriceBar`
 
 	[ 
 	  'BTC/USDT',	// PairName

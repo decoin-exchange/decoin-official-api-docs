@@ -1,9 +1,9 @@
 
 
-# Rest API for Decoin Exchange
+# Rest API for [Decoin.io](https://www.decoin.io/) Exchange
 ## General API related Information
  - The base endpoint is:  **[https://apiv1.decoin.io](https://apiv1.decoin.io/)**
- - All endpoints return either a JSON object or array.
+ - All endpoints return either a JSON object or an array.
  - All time and timestamp related fields are in milliseconds.
 
 ## There are two Main EndPoints
@@ -12,9 +12,9 @@
  2. Authenticated EndPoints.
 
 ### 1. Public EndPoints
- - Public EndPoints accessed through `GET` method.
+ - Public EndPoints can be accessed through `GET` method.
  - For Public EndPoints, parameters must be sent as a `query string`.
- - Public EndPoints response in case of error will have the following structure.
+ - Public EndPoints will have the following response structure.
  
 **Example**
   
@@ -23,7 +23,7 @@
       "Status": Boolean
     }
 
- - **Message:** Message is about the `API` reponse.
+ - **Message:** Message is about the `API` response.
   
  - **Status:** It show status of the response either it is `True` or `False`. `True` shows the request is successfully processed and `False` shows request could not be processed by the server.
  
@@ -31,7 +31,7 @@
 ### 2. Authenticated EndPoints
  - All authenticated endpoints can be accessed through only `POST` request.
  - All request must have API key for accessing data from Authenticated EndPoints.
- - Public EndPoints response in case of error will have the following structure.
+ - Authenticated EndPoints will have the following response structure.
 
         {
          "Message": String,
@@ -39,7 +39,7 @@
          "Result": ObjectArray | JsonArray
         }
 		
- - **Message:** Message is about the `API` reponse.
+ - **Message:** Message is about the `API` response.
 
  - **Status:** it show status of the response either it is `True` or `False`. `True` shows the request is successfully processed and `False` shows request could not be processed by the server.
 
@@ -48,7 +48,7 @@
 ###  Endpoint Security
  - How you interact with each EndPoint depends on the security type.
  - `API-KEYS` passed to the Rest api via request headers.
- - `API-KEYS` can be configured to acccess only certain type of authenticated EndPoints.
+ - `API-KEYS` can be configured to access only certain type of authenticated EndPoints.
  - `API-KEYS` can access all Authenticated EndPoints.
 
 ### Signed EndPoints Security
@@ -57,9 +57,8 @@
  - `signature` can be send in the `query string` or `request body`.
  - `signature` is not case sensitive.
  - `SIGNED` Endpoints use `HMAC SHA256` signatures. 
- - `HMACSHA256` uses **key** + **url** + **body** + **time** ( Time at which the request creted) + **exp** (Expiry time after that the request will not be processed).
- - `signature` creation function  will get these  parameters for `signature` creation. 
-- `singnature` creation function will get these parameters.
+ - `HMACSHA256` uses **key** + **url** + **body** + **time** ( Time at which the request created) + **exp** (Expiry time after that the request will not be processed).
+ - `signature` creation function  will get these  parameters for `signature` creation.
 
 **Parameters**
  
@@ -75,10 +74,10 @@
 
 ### Timing Security 
 
-Trading is about timing some time due to network problem request take too much time to reach to the server so that expiry time specify that after that time request will not be processed by the server.
+Trading is all about timing. Some time due to network congestion, requests may take too long to reach the servers. So to prevent this, one can specify request expiration time after which server should discard the request.
 
--   `Signed`  endpoint  requires a parameter `time`, to be sent which should be the millisecond, it is the time of the request when it was created and sent.
-- `Exp` parameter is an additional parameter for expiry time it specify the time in milliseconds after that request will be expired its default value is 5000.
+-   `Signed` endpoint requires a parameter `time`, to be sent which should be the millisecond, it is the time of the request when it was created and sent.
+- `Exp` parameter is an additional parameter for specifying custom expiration time in milliseconds, after which the server should discard the request. It's default value is 5000.
 - How time security function work is given below.
 
         if (time < (serverTime + 1000) && (serverTime - timestamp) <= exp)  {
@@ -149,7 +148,7 @@ Trading is about timing some time due to network problem request take too much t
 | Name  | Type   | Mandatory | Description  
 | ------------- | ------------- | ------------- |-------------|
 | Limit | INTEGER | NO | Default 30, Max 100.
-| LastDate | DOUBLE | NO | Default UtcNow Unix time stamp in milliseconds
+| LastDate | DOUBLE | NO | Default Utc Unix timestamp in milliseconds
    
   **Response:**
 
@@ -184,6 +183,7 @@ Trading is about timing some time due to network problem request take too much t
     [
 	    {
 	     "Name": "BTC/USDT",
+	     "Min": "0.00000100",
 	     "AskPrice": "11865.00000000",
 	     "BidPrice": "11606.00000000",
 	     "HighPrice": "11846.00000000",
@@ -194,6 +194,7 @@ Trading is about timing some time due to network problem request take too much t
 	    }, 
         {
 	     "Name": "ETH/BTC",
+	     "Min": "0.00100000",
 	     "AskPrice": "0.02954900",
 	     "BidPrice": "0.02801894",
 	     "HighPrice": "0.02939100",
@@ -215,9 +216,10 @@ Trading is about timing some time due to network problem request take too much t
 | Name  | Type   | Mandatory | Description  
 | ------------- | ------------- | ------------- |-------------|
 | PairName | String | YES | `BTC-USDT` or `LTC-BTC`
-| From | DOUBLE | YES | UNIX Timestamp in miliseconds like `1556188959`
-| To | DOUBLE | YES | UNIX Timestamp in miliseconds like `1561457480`
-| Tick | STRING | YES | Can be 1, 2, 3... for days, 1min, 2min, 3min... for specifying mins and 1h, 2h, 3h... for specifying hours
+| From | DOUBLE | YES | UNIX Timestamp in milliseconds like `1556188959`
+| To | DOUBLE | YES | UNIX Timestamp in milliseconds like `1561457480`
+| Tick | STRING | YES | Can be 1, 2, 3... for days, 1min, 2min, 3min... for specifying min and 1h, 2h, 3h... for specifying hours
+| Limit | INTEGER | NO | Default 10, Max 1000
   
   **Response:**
 
@@ -230,7 +232,7 @@ Trading is about timing some time due to network problem request take too much t
       "v":["0.00000000","0.00000000","00000000"]
     } 
 
-### How to limit on no of records fetched
+### How to limit No. of records fetched
 
 ### Get Pairs
 
@@ -349,9 +351,10 @@ Trading is about timing some time due to network problem request take too much t
 |PairName|STRING|YES|PairName is like `ETH-BTC`, `BTC-LTC`, `USDT-LTC` etc
 |Quantity|DECIMAL|YES|Quantity of order to be created
 |Rate|STRING|NO|Required only if `Type` is `LimitOrder`, `StopOrder`
-|Type|STRING|YES|`MarketOrder`, `LimitOrder`, `StopOrder`
+|Type|STRING|YES|`MarketOrder`, `LimitOrder`, `StopOrder`, `CocoOrder`
 |OrderType|STRING|YES|OrderType is of type `Buy` or `Sell` 
 |Stop|DECIMAL|NO| Required only if `Type` is `StopOrder`
+|Limit|DECIMAL|NO| Required only if `Type` is `CocoOrder`
 
 **Response:**
 
@@ -360,7 +363,19 @@ Trading is about timing some time due to network problem request take too much t
       "Message": "Order is successfully created",
       "Result": 
       {
-        OrderId: 123456
+        Id: 123456,
+        OrderUId: null,
+        Quantity: 0.002,
+        QuantityRemaining: 0.002,
+        Rate: 10386.16,
+        Fee: 0,
+        Type: 1,
+        OrderType: 0,
+        Status: 0,
+        DateAdded: '2020-09-29T12:13:14.9661901Z',
+        LastUpdated: '2020-09-29T12:13:14.966191Z',
+        TotalFill: 0,
+        Pair: "BTC/USDT"
       }
     }
 
@@ -385,7 +400,14 @@ Trading is about timing some time due to network problem request take too much t
     {
       "Status": true,
       "Message": "Order Successfully Cancelled",
-      "Result": null
+      "Result": 
+      {
+         Rate: 10386.16,
+         Quantity: 0.002,
+         Pair: 'BTC/USDT',
+         OrderType: 0,
+         Type: 1
+      }
     }
 **Status:** Status can be `True` or `False`.
 
@@ -395,7 +417,7 @@ Trading is about timing some time due to network problem request take too much t
 
 ### Get all Orders
 
-     POST /order/getall
+     GET /order/getall
     
  **Parameters:**
 
@@ -403,6 +425,8 @@ Trading is about timing some time due to network problem request take too much t
 | ------------- | ------------- | ------------- |-------------|
 | PairName| STRING | YES | PairName is like `ETH-BTC`, `BTC-LTC`, `USDT-LTC` etc
 | Status| STRING | NO| Status like `Open`, `History`, `All`. Default `All`
+| Date| DOUBLE | NO| Default UtcNow Unix time stamp in milliseconds
+| Limit| INTEGER | NO| Default 50, Max 100
 
 **Response:**
 
@@ -415,7 +439,12 @@ Trading is about timing some time due to network problem request take too much t
         "QuantityRemaining": "0.001",
         "Status": 0,
         "OrderType": 0,
-        "TotalFill": "0.001"
+        "TotalFill": "0.001",
+        "LastUpdated": "06/30/2020 11:41",
+        "Type": 0,
+        "Name": "BTC/USDT",
+        "OrderUId": null,
+        "Fee": "0.05391459"
       },
       {
         "DateAdded": "10/11/2018 0:31",
@@ -425,10 +454,43 @@ Trading is about timing some time due to network problem request take too much t
         "QuantityRemaining": "0.001",
         "Status": 0,
         "OrderType": 0,
-        "TotalFill": "0.001"
+        "TotalFill": "0.001",
+        "LastUpdated": "06/30/2020 11:41",
+        "Type": 0,
+        "Name": "BTC/USDT",
+        "OrderUId": null,
+        "Fee": "0.05391459"
        }
        ...
     ]
+
+### Get Order By Id
+
+     GET  /order/get-order/
+
+   **Parameters:**
+  
+| Name  | Type   | Mandatory | Description  
+| ------------- | ------------- | ------------- |-------------|
+| Id | INTEGER | Yes | Order Id
+   
+  **Response:**
+
+         {
+             "DateAdded": "10/11/2018 0:31",
+             "Rate": "6549",
+             "Quantity": "0.001",
+             "Id": 9,
+             "QuantityRemaining": "0.001",
+             "Status": 0,
+             "OrderType": 0,
+             "TotalFill": "0.001",
+             "LastUpdated": "06/30/2020 11:41",
+             "Type": 0,
+             "OrderUId": null,
+             "Fee": "0.05391459",
+             "Name": "BTC/USDT"
+         }
 
 ### Withdraw Funds
 
@@ -485,7 +547,7 @@ Trading is about timing some time due to network problem request take too much t
 
      POST /api/v1/userdatastream
      
-Start a new user data stream. The stream will close after 60 minutes unless a keepalive is sent.
+Start a new user data stream. The stream will close after 60 minutes unless a keep alive is sent.
 
 **Response**
 
@@ -493,18 +555,18 @@ Start a new user data stream. The stream will close after 60 minutes unless a ke
 	   "ListenKey": "pqia91ma19a5s61cv6a81va65sdf19v8a65a1a5s61cv6a81va65sdf19v8a65a1"
 	 }
 	 
-### Keepalive user data stream
+### Keep alive user data stream
 
      PUT  /api/v1/userdatastream
      
-Keepalive a user data stream to prevent a time out. User data streams will close after 60 minutes.
+Keep alive a user data stream to prevent a time out. User data streams will close after 60 minutes.
 It's recommended to send a ping about every 30 minutes.
 
 **Parameters:**
 
 |Name|Type|Mandatory|Description|
 | ------------- | ------------- | ------------- |-------------|
-|PrivateKey|STRING|YES|
+|ListenKey|STRING|YES|
 
 **Response**
 
@@ -516,7 +578,7 @@ It's recommended to send a ping about every 30 minutes.
 
      DELETE  /api/v1/userdatastream
      
-Close out a user data stream.
+Close down user data stream.
 
 **Parameters:**
 
@@ -534,10 +596,19 @@ Close out a user data stream.
 
      GET  /trade/get-wallet-history
 
+**Parameters:**
+
+|Name|Type|Mandatory|Description|
+| ------------- | ------------- | ------------- |-------------|
+|Currency|STRING|No|Currency like Bitcoin, Litecoin, etc|
+|Date|DOUBLE|No|Default UtcNow Unix time stamp in milliseconds|
+|Limit|INTEGER|No|Default 20, Max 100|
+
 **Response**
 	
          [ 
           { 
+            Id: 12345
             ToAddress: "1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC",
             Status: 0,
             Amount: "0.002",
@@ -546,6 +617,7 @@ Close out a user data stream.
             Currency: "Bitcoin" 
           },
           { 
+            Id: 51234
             ToAddress: "1NwwgPz1F5n34noui9Pa85YbmfCpsfaxAC",
             Status: 0,
             Amount: "0.002",
@@ -558,6 +630,14 @@ Close out a user data stream.
 ### Get Deposit History
 
      GET  /trade/get-deposit-history
+
+**Parameters:**
+
+|Name|Type|Mandatory|Description|
+| ------------- | ------------- | ------------- |-------------|
+|Currency|STRING|No|Currency like Bitcoin, Litecoin, etc|
+|Date|DOUBLE|No|Default UtcNow Unix time stamp in milliseconds|
+|Limit|INTEGER|No|Default 20, Max 100|
 
 **Response**
 
@@ -624,5 +704,67 @@ Close out a user data stream.
              Name: "5", Level: 5, MakerFee: "0.07%", TakerFee: "0.08%"
           }
        ]
-     
 
+### Get User Market History
+
+     GET  /market/get-user-market/{PairName}
+
+   **PairName:** like BTC-USDT
+
+   **Parameters:**
+  
+| Name  | Type   | Mandatory | Description  
+| ------------- | ------------- | ------------- |-------------|
+| Limit | INTEGER | NO | Default 30, Max 100.
+| LastDate | DOUBLE | NO | Default UtcNow Unix time stamp in milliseconds
+   
+  **Response:**
+
+         [
+           {
+             Id: 432561,
+             Amount: '0.00106100',
+             Rate: '10373.69000000',
+             Date: '2020-09-24T13:33:56',
+             Status: 1,
+             OrderId: 12345,
+             OrderType: 0
+           },
+           {
+             Id: 432562,
+             Amount: '0.00100000',       
+             Rate: '10386.16000000',     
+             Date: '2020-09-24T13:07:53',
+             Status: 1,
+             OrderId: 12345,
+             OrderType: 0
+           }
+           ...
+         ]
+
+### Get Funding Limits
+
+     GET  /wallet/funding-limits/
+
+ **Parameters:**
+  
+| Name  | Type   | Mandatory | Description  
+| ------------- | ------------- | ------------- |-------------|
+| Currency | STRING | Yes | Bitcoin, Ethereum etc.
+   
+  **Response:**
+
+      {
+         "Status": true,
+         "Message": null,
+         "Result": 
+         {
+             "1":
+                 {
+                     "Limitation": "2.0000000",
+                     "Consumed": "0.000234",
+                     "CurrencyId": "1",
+                     "GroupLimitId": "2"
+                 }
+         }
+      }

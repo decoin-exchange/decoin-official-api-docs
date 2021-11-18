@@ -1,14 +1,14 @@
 # CMC Standard Rest API Documentation
 ## General API related Information
  - The base endpoint is:  **[https://apiv1.decoin.io](https://apiv1.decoin.io/)**
- - All endpoints return either a JSON object or array.
+ - All endpoints return either a JSON object or an array.
  
 
 ## There Are Four Public EndPoints
 
- - EndPoints accessed through `GET` method.
+ - EndPoints can be accessed through `GET` method.
  - For EndPoints, parameters must be sent as a `query string`.
- - Public EndPoints response in case of error will have the following structure.
+ - Public EndPoints will have the following response structure.
  
 **Example**
   
@@ -19,7 +19,7 @@
 
  - **Message:** Message is about the `API` response.
   
- - **Status:** It shows the status of the response either it is `True` or `False`. `True` shows the request is successfully processed and `False` shows request could not be processed by the server.
+ - **Status:** It shows the status of the response, It is either `True` or `False`. `True` indicates request is successfully processed and `False` indicates request could not be processed by the server.
  
  
 
@@ -38,7 +38,6 @@
             "last_price": "9779.03",
             "quote_volume": "1873727.31",
             "base_volume": "191.607251",
-            "open_interest": 97,
             "type": "spot",
             "isFrozen": "0"
         },
@@ -48,7 +47,6 @@
             "last_price": "0.020003",
             "quote_volume": "34.538524",
             "base_volume": "1386.810839",
-            "open_interest": 66,
             "type": "spot",
             "isFrozen": "1"
         } ...
@@ -70,6 +68,7 @@
             "last_price": "7504.99",
             "quote_volume": "1866520.31",
             "base_volume": "190.830650",
+            "price_change_percent_24h" : "0.85009918"
         },
         "ETH_BTC": {
             "ask_price": "0.019964",
@@ -79,6 +78,7 @@
             "last_price": "0.019962",
             "quote_volume": "34.483552",
             "base_volume": "1381.441855",
+            "price_change_percent_24h": "0.28989045"
         },...
     }    
 

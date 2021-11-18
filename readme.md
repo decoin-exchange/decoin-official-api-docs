@@ -1,7 +1,7 @@
-# Official documentation for decoin Rest APIs and Sockets
+# Official documentation for [Decoin.io](https://www.decoin.io/en/) Rest API and Socket
 
-- Endpoints, parameters and response are describied in rest api documentation.
-- Socket api notifies any change that comes against any action e.g creating order, chnage in wallet etc.
+- Endpoints, parameters and responses are described in rest api documentation.
+- Socket notifies any change that comes against any action e.g creating order, change in wallet etc.
 
 ## Rest API
 
@@ -21,4 +21,4 @@
 
 
 
-For developer support please feel free to contact us at [developer@decoin.io](mailto:developer@decoin.io)
+For developer support, feel free to contact us at [developer@decoin.io](mailto:developer@decoin.io)

@@ -1,4 +1,4 @@
-const signalR = require("@aspnet/signalr");
+const signalR = require("@microsoft/signalr");
 var socket_api_url ="https://socketv1.decoin.io/market";
 let socketConnection = new signalR.HubConnectionBuilder()
 //exchange/socket/api  
